@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Riddle Generator</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background: linear-gradient(to bottom, #0b7def, #e5eaf0);
+      text-align: center;
+      padding: 50px;
+    }
+
+    h1 {
+      font-size: 2em;
+      color: #1f2937;
+    }
+
+    #riddle {
+      font-size: 1.3em;
+      font-family: fantasy;
+      margin: 30px auto;
+      width: 80%;
+      max-width: 600px;
+      padding: 20px;
+      background: #fff;
+      border-radius: 10px;
+      box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    }
+
+    button {
+      font-size: 1em;
+      padding: 10px 20px;
+      border: none;
+      background-color: #2563eb;
+      color: white;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
+
+    button:hover {
+      background-color: #1e40af;
+    }
+
+    a {
+      display: block;
+      margin-top: 40px;
+      color: #2563eb;
+      text-decoration: none;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Riddle Generator</h1>
+  <div id="riddle">Click the button to get a riddle!</div>
+  <button onclick="generateRiddle()">Get Riddle</button>
+
+  <a href="index.html">← Back to Scratch Page</a>
+
+  <script>
+    const riddles = [
+      {
+        question: "What has to be broken before you can use it?",
+        answer: "An egg."
+      },
+      {
+        question: "I'm tall when I'm young, and I'm short when I'm old. What am I?",
+        answer: "A candle."
+      },
+      {
+        question: "What month of the year has 28 days?",
+        answer: "All of them."
+      },
+      {
+        question: "What is full of holes but still holds water?",
+        answer: "A sponge."
+      },
+      {
+        question: "What question can you never answer yes to?",
+        answer: "Are you asleep yet?"
+      }
+    ];
+
+    function generateRiddle() {
+      const riddle = riddles[Math.floor(Math.random() * riddles.length)];
+      document.getElementById('riddle').innerHTML = `
+        <strong>Riddle:</strong><br>${riddle.question}<br><br>
+        <em>Answer:</em> <span style="color:#4b5563">${riddle.answer}</span>
+      `;
+    }
+  </script>
+
+</body>
+</html>
